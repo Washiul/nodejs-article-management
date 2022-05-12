@@ -28,5 +28,8 @@ router.get('/', async (req, res)=>{
 	res.render( 'home',{user, blogs} );
 });
 
+router.get('*', (req, res)=>{
+	res.send( '404' );
+});
 
 module.exports = router;
