@@ -1,4 +1,5 @@
 const express = require('express');
+// require('dotenv').config();
 require('./db/mongoose.js');
 const User = require('./models/user');
 const userRouter = require('./routers/user');
@@ -6,7 +7,7 @@ const blogRouter = require('./routers/blog');
 const hbs = require('hbs');
 const path = require('path');
 const flash = require('connect-flash');
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -41,7 +42,8 @@ hbs.registerHelper('toString', function (a) {
 app.use(express.static(publicDirectoryPath));
 // app.use(cookieParser());
 // for parsing application/json
-app.use(bodyParser.json()); 
+// app.use(bodyParser.json()); 
+app.use(express.json())
 // for parsing application/xwww-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true })); 
 
