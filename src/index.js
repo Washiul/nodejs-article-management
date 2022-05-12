@@ -1,25 +1,25 @@
 const express = require('express');
 // require('dotenv').config();
 require('./db/mongoose.js');
-// const User = require('./models/user');
-// const userRouter = require('./routers/user');
-// const blogRouter = require('./routers/blog');
-// const hbs = require('hbs');
-// const path = require('path');
-// const flash = require('connect-flash');
-// // const bodyParser = require("body-parser");
-// const session = require('express-session');
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
-// // var cookieParser = require('cookie-parser')
+const User = require('./models/user');
+const userRouter = require('./routers/user');
+const blogRouter = require('./routers/blog');
+const hbs = require('hbs');
+const path = require('path');
+const flash = require('connect-flash');
+// const bodyParser = require("body-parser");
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+// var cookieParser = require('cookie-parser')
 
-// const publicDirectoryPath = path.join(__dirname, '../public')
-// const viewPath = path.join(__dirname, '../templates/views');
-// const partialPath = path.join(__dirname, '../templates/partials');
+const publicDirectoryPath = path.join(__dirname, '../public')
+const viewPath = path.join(__dirname, '../templates/views');
+const partialPath = path.join(__dirname, '../templates/partials');
 
 const app = express();
 const port = process.env.PORT|3000;
-
+console.log('yehhh');
 // app.set( 'view engine', 'hbs' );
 // app.set( 'views', viewPath );
 // hbs.registerPartials( partialPath ); 
