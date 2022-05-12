@@ -17,8 +17,8 @@ require('./db/mongoose.js');
 // const viewPath = path.join(__dirname, '../templates/views');
 // const partialPath = path.join(__dirname, '../templates/partials');
 
-// const app = express();
-// const port = process.env.PORT|3000;
+const app = express();
+const port = process.env.PORT|3000;
 
 // app.set( 'view engine', 'hbs' );
 // app.set( 'views', viewPath );
@@ -69,4 +69,4 @@ require('./db/mongoose.js');
 // app.use( userRouter );
 // app.use( blogRouter );
  
-// app.listen( port, () => console.log( 'Server running on port '+port ) );
+app.listen( port, () => console.log( 'Server running on port '+port ) );
