@@ -19,7 +19,7 @@ const partialPath = path.join(__dirname, '../templates/partials');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-console.log('yehhh');
+
 app.set( 'view engine', 'hbs' );
 app.set( 'views', viewPath );
 hbs.registerPartials( partialPath ); 
@@ -67,6 +67,6 @@ app.use((req, res, next)=>{
 });
 
 app.use( userRouter );
-// app.use( blogRouter );
+app.use( blogRouter );
  
 app.listen( PORT, () => console.log( 'Server running on port '+PORT ) );
