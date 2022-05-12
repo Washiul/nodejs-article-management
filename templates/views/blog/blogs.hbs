@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Article</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    
+    {{>header}}
+
+    <main role="main">
+    	<div class="container">
+    	    <div class="row">
+
+                {{>admin/navigation}}
+
+                <div class="content col-md-10 d-md-block">
+                    {{>message}}
+                    <table class="table table-striped table-hover">
+                       <thead>
+                        <tr>
+                          <th scope="col">Thumbnail</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      {{#each blogs}}
+                      <tr>                        
+                          <td><img class="pic-small" src="{{ this.thumbnail }}"></td>
+                          <td><a href="/dashboard/blogs/{{this._id}}">{{this.title}}</a></td>
+                          <td>{{this.createdAt}}</td>
+                          <td><form action="/blogs/edit/{{this._id}}" method="post"><button type="submit" class="btn"><img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"/></button></form></td>
+                      </tr>
+                      {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+	</main>
+
+    {{>footer}}
+    
+</body>
+</html>

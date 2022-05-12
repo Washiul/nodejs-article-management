@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Article</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    
+    {{>header}}
+
+    <main role="main">
+    	<div class="container">
+    	    <div class="row">
+
+                {{>admin/navigation}}
+
+                <div class="content col-md-10 d-md-block">
+                    {{>message}}
+                    <form action="/dashboard/blogs/{{blog._id}}" method="post" enctype="multipart/form-data">
+                      
+                      <div class="form-group">
+                        <label for="exampleInputName1">Title</label>
+                        <input name="title" type="text" class="form-control" value="{{blog.title}}" placeholder="Enter your name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <textarea name="description" class="form-control" rows="6">{{blog.description}}</textarea>
+                        <span class="updated-at">Modified at {{blog.updatedAt}}</span>
+                      </div>
+                      <div class="form-group">
+                        <img class="blog-pic" src="data:image/jpeg;base64,{{blog.thumbnail}}">
+                       <input type="file" name="thumbnail" />
+                      </div>
+                      <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</main>
+
+    {{>footer}}
+    
+</body>
+</html>

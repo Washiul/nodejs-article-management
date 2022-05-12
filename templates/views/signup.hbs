@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>Article</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	
+	{{>header}}
+
+	<main role="main">
+
+
+	  <div class="container">
+	  	<div class="registration-wrap w-50 mx-auto">
+		    <h1 class="mb-5 text-center">Create an account</h1>
+		    {{>message}}
+		    <form action="/register" method="post">
+		      <div class="form-group">
+			    <label for="exampleInputName1">Your name</label>
+			    <input name="name" type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter your name" value="{{user.name}}">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Email address</label>
+			    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{user.email}}">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputphone1">Phone number</label>
+			    <input type="text" name="phone" class="form-control" id="exampleInputphone1" aria-describedby="phoneHelp" placeholder="Enter phone number" value="{{user.phone}}">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			  </div>
+			  <div class="form-group">
+			    <div class="form-check form-check-inline">
+				   	<!-- {{#if (isEqual user.gender 'male')}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" checked>							  
+					<!-- {{else}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" checked>
+					<!-- {{/if}} -->
+					<label class="form-check-label" for="inlineRadio1">Male</label>
+			    </div>
+			    <div class="form-check form-check-inline">
+				   	<!-- {{#if (isEqual user.gender 'female')}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" checked>
+					<!-- {{else}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+					<!-- {{/if}} -->
+					<label class="form-check-label" for="inlineRadio2">Female</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<!-- {{#if (isEqual user.gender 'other')}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="other" checked>
+					<!-- {{else}} -->
+					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="other">
+					<!-- {{/if}} -->
+					<label class="form-check-label" for="inlineRadio2">Other</label>
+				</div>
+						</div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+	  </div> <!-- /container -->
+
+	</main>
+
+	{{>footer}}
+	
+</body>
+</html>

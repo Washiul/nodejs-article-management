@@ -1,0 +1,47 @@
+.left-navbar{
+	display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+body{
+	min-height: 100vh;
+	display: flex;
+    flex-direction: column;
+}
+
+body main{
+	flex-grow: 1;
+}
+
+.dashboard-menu a{
+	font-size: 16px;
+}
+
+form .updated-at{
+	float: right;
+    font-size: 13px;
+}
+
+form .profile-pic{
+	width: 80px;
+    border-radius: 50%;
+}
+
+.nav-profile{
+	width: 40px;
+    border-radius: 50%;
+}
+form input[type="file"]{
+	display:block;
+}
+.blog-pic{
+	width: 250px;
+    margin: 5px 0;
+}
+.pic-small{
+	width: 100px;
+}
+body img{
+	image-orientation: none!important;
+}

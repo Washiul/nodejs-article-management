@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Article</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    
+    {{>header}}
+    <main role="main">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    {{#each blogs}}
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1"><a href="/blogs/{{this._id}}">{{this.title}}</a></h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">{{this.author.name}} | {{this.updatedAt}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4">
+                            {{#if (isTrue this.thumbnail)}}
+                                <img class="img-fluid rounded pic-large" src="{{ this.thumbnail }}">
+                            {{else}}
+                                <img class="img-fluid rounded pic-large" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg">
+                            {{/if}}                            
+                        </figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">{{this.description}}</p>
+                        </section>
+                    </article>
+                    {{/each}}
+                </div>
+                <!-- Side widgets-->
+                {{>sidebar}}
+            </div>
+        </div>
+    </main>
+
+    {{>footer}}
+    
+</body>
+</html>
