@@ -1,5 +1,4 @@
 const express = require('express');
-// require('dotenv').config();
 require('./db/mongoose.js');
 const User = require('./models/user');
 const userRouter = require('./routers/user');
@@ -18,7 +17,7 @@ const viewPath = path.join(__dirname, '../templates/views');
 const partialPath = path.join(__dirname, '../templates/partials');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.set( 'view engine', 'hbs' );
 app.set( 'views', viewPath );
@@ -40,10 +39,8 @@ hbs.registerHelper('toString', function (a) {
 });
 
 app.use(express.static(publicDirectoryPath));
-// app.use(cookieParser());
 // for parsing application/json
 app.use(bodyParser.json()); 
-// app.use(express.json())
 // for parsing application/xwww-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true })); 
 
