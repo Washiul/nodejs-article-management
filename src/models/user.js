@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
-const bcrypt = require('bcrypt');
-// var jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
 		name:{
@@ -23,11 +21,6 @@ const userSchema = new mongoose.Schema({
 			type: String,
 			trim: true
 		},
-		// password:{
-		// 	type: String,
-		// 	required: true,
-		// 	trim: true
-		// },
 		avater:{
 			type: String,
 		},
@@ -48,16 +41,6 @@ userSchema.virtual('blogs', {
     foreignField: 'author'
 });
 
-userSchema.statics.findUserByCred = async function( email, password ){
-	const user = await this.findOne({email});
-	const isMatch = await bcrypt.compare( password, user.password );
-	console.log(isMatch);
-	if( !isMatch ){
-		throw new Error('Unable to login');
-	}
-	return user;
-}
-
 userSchema.methods.generateAuthToken = async function(){
 	const user = this;
 	const token = jwt.sign({ _id: user._id.toString() }, 'thisisarticlemanagement');
@@ -65,15 +48,6 @@ userSchema.methods.generateAuthToken = async function(){
 	await user.save();
 	return token;
 }
-
-userSchema.pre('save', async function(next){
-	const user = this;
-	if( user.isModified('password') ){
-		user.password = await bcrypt.hash( user.password, 10 );
-	}
-
-	next();
-});
 
 const User = mongoose.model( 'User', userSchema );
 

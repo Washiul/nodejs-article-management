@@ -10,7 +10,6 @@ const bodyParser = require("body-parser");
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-// var cookieParser = require('cookie-parser')
 
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views');

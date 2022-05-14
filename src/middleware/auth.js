@@ -1,4 +1,3 @@
-// const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 const isAuthenticated = async (req, res, next ) =>{

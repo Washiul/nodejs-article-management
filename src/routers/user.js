@@ -66,7 +66,7 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', passport.authenticate('local', {
 	failureRedirect: '/login',
-	// failureFlash: 'Invalid email or password.'
+	failureFlash: 'Invalid email or password.'
 }),(req, res)=>{
     res.redirect('/dashboard');
 });
